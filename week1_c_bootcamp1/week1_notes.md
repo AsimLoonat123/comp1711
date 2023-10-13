@@ -11,3 +11,8 @@ int main() {            #defines the main function
 
 CTRL + S before compiling with gcc
 use code whatever.c to create another C codespace
+
+%c single char
+%s string
+%d decimal integer
+%f a floating point number for floats
