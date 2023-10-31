@@ -53,17 +53,18 @@ int main() {
         return 1;
     }
 
-    int buffer_size = 1000, numberOfRecords = 1, i = 0;
+    int buffer_size = 1000, numberOfRecords = 0, i = 0;
     char line_buffer[buffer_size], record[buffer_size];
 
-    fgets(line_buffer, buffer_size, file);
+    //fgets(line_buffer, buffer_size, file);
     //prints the first line of the file:
-    printf("%s", line_buffer);
+    //printf("%s", line_buffer);
     
 
     while (fgets(line_buffer, buffer_size, file) != NULL)
     {
         numberOfRecords++;
+        printf("%s", line_buffer);
         //i++;
         //record[i] = line_buffer;
     }
