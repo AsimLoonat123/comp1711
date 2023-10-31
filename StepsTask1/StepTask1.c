@@ -43,6 +43,34 @@ void tokeniseRecord(const char *input, const char *delimiter,
 
 // Complete the main function
 int main() {
+    //open the file in read mode
+    FILE *file = fopen("FitnessData_2023.csv", "r");
 
+    //if the file contains nothing then give an error message
+    if (file == NULL) 
+    {
+        perror("");
+        return 1;
+    }
+
+    int buffer_size = 1000, numberOfRecords;
+    char line_buffer[buffer_size], record[buffer_size];
+    
+
+    while (fgets(line_buffer, buffer_size, file) != NULL)
+    {
+        numberOfRecords++;
+    }
+
+    //prints each line of the file
+    //while (fgets(line_buffer, buffer_size, file) != NULL)
+    //{
+    //    printf("%s", line_buffer);
+        //printf("%d\n", atoi(line_buffer)); //or printf("%d\n", atoi(line_buffer)) which only works if all the lines contain integer values check notes.md for more
+    //}
+
+    printf("Number of records in file: %d\n", numberOfRecords);
+    fclose(file);
+    return 0;
 
 }
