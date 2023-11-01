@@ -53,65 +53,46 @@ int main() {
         return 1;
     }
 
-    int buffer_size = 1000, numberOfRecords = 0, i = 0, stepsint, n = 0;
-    char line_buffer[buffer_size], record[buffer_size], date[10000], time[10000], steps[10000];
+    //initialise the variables
+    int buffer_size = 1000, numberOfRecords = 0, i = 1, stepsint, n = 1;
+    char line_buffer[buffer_size], record[buffer_size], date[1000], time[1000], steps[1000];
 
-    //fgets(line_buffer, buffer_size, file);
-    //prints the first line of the file:
-    //printf("%s", line_buffer);
-
-
+    //initialise the struct
     FITNESS_DATA fitnessData [] = {
     };
     
-
+    //loop while the line being checked isn't empty then loop to the next line of the file
     while (fgets(line_buffer, buffer_size, file) != NULL)
     {
+        //increment numberOfRecords so that the total number of records can be counted as each line is 1 record
         numberOfRecords++;
-        //printf("%s", line_buffer);
+
+        //tokenise each line of the line into three separate variables
         tokeniseRecord(line_buffer, ",", date, time, steps);
+
+        //convert steps to an integer
         stepsint = atoi(steps);
+
+        //assign the date, time and steps to an element of an array in the struct
         strcpy(fitnessData[i].date, date);
         strcpy(fitnessData[i].time, time);
         fitnessData[i].steps = stepsint;
+        
+        //increment i so that the date, time and steps are assigned to the next element of the array
         i++;
         
-
-        //printf("Time in line %d is: %s\n", i, time);
-        //printf("Date %d\n", fitnessData[2].steps);
-        //record[i] = line_buffer;
-        
     }
 
-    
-    for (n=0; n<3; n++) {
-        printf("%s/%s/%d\n", fitnessData[n].date, fitnessData[n].time, fitnessData[n].steps);
-        //printf("%s/", fitnessData[n].date);            
-    }
-
-    //fgets(line_buffer, buffer_size, file)
-    //prints each line of the file
-    //while (fgets(line_buffer, buffer_size, file) != NULL)
-    //{
-    //    printf("%s", line_buffer);
-        //printf("%d\n", atoi(line_buffer)); //or printf("%d\n", atoi(line_buffer)) which only works if all the lines contain integer values check notes.md for more
-    //}
-    
-    //printf("%s", record);
-
-
-    
-
-    //FITNESS_DATA fitnessData [] = {
-    //    {date, time, steps}
-    //};
-    //printf("Number of steps in line 1 is: %d\n", date[1]);
-    
-
+    //print the total number of records in the file
     printf("Number of records in file: %d\n", numberOfRecords);
     
-    
-    
+    //loop three times
+    for (n=1; n<4; n++) {
+        //print the date, time and steps separated by /
+        printf("%s/%s/%d\n", fitnessData[n].date, fitnessData[n].time, fitnessData[n].steps);          
+    }
+
+    //close the file
     fclose(file);
     return 0;
 
