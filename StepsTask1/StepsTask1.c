@@ -77,6 +77,11 @@ int main() {
     //}
     
     //printf("%s", record);
+    //tokeniseRecord(line_buffer, ",", date, time, steps);
+    //FITNESS_DATA fitnessData [] = {
+    //    {date, time, steps}
+    //};
+    //printf("Number of steps in line 1 is: %s\n", steps[1]);
     printf("Number of records in file: %d\n", numberOfRecords);
     fclose(file);
     return 0;
