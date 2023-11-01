@@ -53,8 +53,8 @@ int main() {
         return 1;
     }
 
-    int buffer_size = 1000, numberOfRecords = 0, i = 0;
-    char line_buffer[buffer_size], record[buffer_size];
+    int buffer_size = 1000, numberOfRecords = 0, i = 0, stepsint;
+    char line_buffer[buffer_size], record[buffer_size], date[11], time[6], steps[10];
 
     //fgets(line_buffer, buffer_size, file);
     //prints the first line of the file:
@@ -65,9 +65,19 @@ int main() {
     {
         numberOfRecords++;
         printf("%s", line_buffer);
-        //i++;
+        i++;
+        tokeniseRecord(line_buffer, ",", date, time, steps);
+        FITNESS_DATA fitnessData [] = {
+            {date,    time, steps},
+        };
+        printf("Time in line %d is: %s\n", i, time);
+        //printf("Date %d\n", fitnessData[2].steps);
         //record[i] = line_buffer;
+        
     }
+
+    
+
     //fgets(line_buffer, buffer_size, file)
     //prints each line of the file
     //while (fgets(line_buffer, buffer_size, file) != NULL)
@@ -77,11 +87,15 @@ int main() {
     //}
     
     //printf("%s", record);
-    //tokeniseRecord(line_buffer, ",", date, time, steps);
+
+
+    
+
     //FITNESS_DATA fitnessData [] = {
     //    {date, time, steps}
     //};
-    //printf("Number of steps in line 1 is: %s\n", steps[1]);
+    //printf("Number of steps in line 1 is: %d\n", date[1]);
+    
     printf("Number of records in file: %d\n", numberOfRecords);
     fclose(file);
     return 0;
