@@ -8,6 +8,7 @@
 // Define any additional variables here
 // Global variables for filename and FITNESS_DATA array
 
+#define buffer_size 1000
 
 // This is your helper function. Do not change it in any way.
 // Inputs: character array representing a row; the delimiter character
@@ -53,15 +54,45 @@ int main() {
    printf("Q: Quit\n");
    scanf("%s", &menuOption);
 
+   char line[buffer_size];
+   char filename[buffer_size];
+
    switch(menuOption)
    {
     case 'A':
     case 'a':
-    printf("A has been selected!\n");
+    printf("Please specify the filename to be imported: ");
+    fgets(line, buffer_size, stdin);
+    sscanf(line, " %s ", filename);
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Error opening the file.\n");
+        return 1;
+    }
     break;
     case 'B':
     case 'b':
     printf("B has been selected!\n");
+    break;
+    case 'C':
+    case 'c':
+    printf("C has been selected!\n");
+    break;
+    case 'D':
+    case 'd':
+    printf("D has been selected\n");
+    break;
+    case 'E':
+    case 'e':
+    printf("E has been selected\n");
+    break;
+    case 'F':
+    case 'f':
+    printf("F has been selected\n");
+    break;
+    case 'Q':
+    case 'q':
+    printf("Q has been selected\n");
     break;
    }
 }

@@ -1,6 +1,6 @@
 #ifndef FITNESS_DATA_STRUCT_H
 #define FITNESS_DATA_STRUCT_H
-
+#define buffer_size 1000
 #include <stdio.h>
 
 // Define an appropriate struct
