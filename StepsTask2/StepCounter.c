@@ -8,7 +8,8 @@
 // Define any additional variables here
 // Global variables for filename and FITNESS_DATA array
 
-#define buffer_size 1000
+#define bufferr_size 1000
+#define stdin stdin
 
 // This is your helper function. Do not change it in any way.
 // Inputs: character array representing a row; the delimiter character
@@ -43,7 +44,13 @@ void tokeniseRecord(const char *input, const char *delimiter,
 
 // Complete the main function
 int main() {
-   char menuOption;
+    char line[bufferr_size];
+   char filename[bufferr_size];
+   int i = 0;
+   FILE *input = NULL;
+   FITNESS_DATA fitnessData[bufferr_size];
+    while (1) {
+        char menuOption;
    printf("Please select an option from below:\n");
    printf("A: Specify the filename to be imported\n");
    printf("B: Display the total number of records in the file\n");
@@ -53,26 +60,34 @@ int main() {
    printf("F: Find the longest continuous period where the step count is above 500 steps\n");
    printf("Q: Quit\n");
    scanf("%s", &menuOption);
+   while (getchar() != '\n');
 
-   char line[buffer_size];
-   char filename[buffer_size];
+   
 
    switch(menuOption)
    {
     case 'A':
     case 'a':
     printf("Please specify the filename to be imported: ");
-    fgets(line, buffer_size, stdin);
+    fgets(line, bufferr_size, stdin);
     sscanf(line, " %s ", filename);
-    FILE *file = fopen(filename, "r");
-    if (file == NULL) {
+    FILE *input = fopen(filename, "r");
+    
+    if (!input) {
         printf("Error opening the file.\n");
         return 1;
     }
+    else {
+        printf("File loaded.\n");
+    }
+    fclose(input);
     break;
     case 'B':
     case 'b':
-    printf("B has been selected!\n");
+    //printf("B has been selected!\n");
+    FILE *input = fopen(filename, "r");
+    int numberOfRecords (input, i);
+    fclose(input);
     break;
     case 'C':
     case 'c':
@@ -92,7 +107,12 @@ int main() {
     break;
     case 'Q':
     case 'q':
-    printf("Q has been selected\n");
-    break;
+        return 0;
+    
+    default: 
+        printf("Invalid choice. Try again.\n");
+        break;
+    }
+   
    }
 }
