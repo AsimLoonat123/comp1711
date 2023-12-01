@@ -91,24 +91,23 @@ int main() {
                 break;
             case 'C':
             case 'c':
-            printf("C has been selected!\n");
+                printf("C has been selected!\n");
             break;
             case 'D':
             case 'd':
-            printf("D has been selected\n");
+                printf("D has been selected\n");
             break;
             case 'E':
             case 'e':
-            printf("E has been selected\n");
+                printf("E has been selected\n");
             break;
             case 'F':
             case 'f':
-            printf("F has been selected\n");
+                printf("F has been selected\n");
             break;
             case 'Q':
             case 'q':
                 return 0;
-            
             default: 
                 printf("Invalid choice. Try again.\n");
                 break;
