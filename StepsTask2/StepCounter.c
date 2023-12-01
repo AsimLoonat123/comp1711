@@ -37,7 +37,7 @@ void tokeniseRecord(const char *input, const char *delimiter,
     // Free the duplicated string
     free(inputCopy);
 
-                    }
+    }
 
 
 
@@ -51,68 +51,68 @@ int main() {
    FITNESS_DATA fitnessData[bufferr_size];
     while (1) {
         char menuOption;
-   printf("Please select an option from below:\n");
-   printf("A: Specify the filename to be imported\n");
-   printf("B: Display the total number of records in the file\n");
-   printf("C: Find the date and time of the timeslot with the fewest steps\n");
-   printf("D: Find the date and time of the timeslot with the largest number of steps\n");
-   printf("E: Find the mean step count of all the records in the file\n");
-   printf("F: Find the longest continuous period where the step count is above 500 steps\n");
-   printf("Q: Quit\n");
-   scanf("%s", &menuOption);
-   while (getchar() != '\n');
+        printf("Please select an option from below:\n");
+        printf("A: Specify the filename to be imported\n");
+        printf("B: Display the total number of records in the file\n");
+        printf("C: Find the date and time of the timeslot with the fewest steps\n");
+        printf("D: Find the date and time of the timeslot with the largest number of steps\n");
+        printf("E: Find the mean step count of all the records in the file\n");
+        printf("F: Find the longest continuous period where the step count is above 500 steps\n");
+        printf("Q: Quit\n");
+        scanf("%s", &menuOption);
+        while (getchar() != '\n');
 
-   
+        
 
-   switch(menuOption)
-   {
-    case 'A':
-    case 'a':
-    printf("Please specify the filename to be imported: ");
-    fgets(line, bufferr_size, stdin);
-    sscanf(line, " %s ", filename);
-    FILE *input = fopen(filename, "r");
+        switch(menuOption)
+        {
+            case 'A':
+            case 'a':
+                printf("Please specify the filename to be imported: ");
+                fgets(line, bufferr_size, stdin);
+                sscanf(line, " %s ", filename);
+                input = fopen(filename, "r");
+                
+                if (!input) {
+                    printf("Error opening the file.\n");
+                    return 1;
+                }
+                else {
+                    printf("File loaded.\n");
+                }
+                fclose(input);
+            break;
+            case 'B':
+            case 'b':
+                input = fopen(filename, "r");
+                int recordNumber = numberOfRecords (input, i);
+                printf("%d\n", recordNumber);
+                fclose(input);
+                break;
+            case 'C':
+            case 'c':
+            printf("C has been selected!\n");
+            break;
+            case 'D':
+            case 'd':
+            printf("D has been selected\n");
+            break;
+            case 'E':
+            case 'e':
+            printf("E has been selected\n");
+            break;
+            case 'F':
+            case 'f':
+            printf("F has been selected\n");
+            break;
+            case 'Q':
+            case 'q':
+                return 0;
+            
+            default: 
+                printf("Invalid choice. Try again.\n");
+                break;
+            }
     
-    if (!input) {
-        printf("Error opening the file.\n");
-        return 1;
     }
-    else {
-        printf("File loaded.\n");
-    }
-    fclose(input);
-    break;
-    case 'B':
-    case 'b':
-    //printf("B has been selected!\n");
-    FILE *input = fopen(filename, "r");
-    int numberOfRecords (input, i);
-    fclose(input);
-    break;
-    case 'C':
-    case 'c':
-    printf("C has been selected!\n");
-    break;
-    case 'D':
-    case 'd':
-    printf("D has been selected\n");
-    break;
-    case 'E':
-    case 'e':
-    printf("E has been selected\n");
-    break;
-    case 'F':
-    case 'f':
-    printf("F has been selected\n");
-    break;
-    case 'Q':
-    case 'q':
-        return 0;
-    
-    default: 
-        printf("Invalid choice. Try again.\n");
-        break;
-    }
-   
-   }
 }

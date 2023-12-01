@@ -13,20 +13,15 @@ typedef struct {
 
 int numberOfRecords (FILE *inputFile, int numberOfRecords)
 {
-	
-
     char line_buffer[bufferr_size];
-    
     //loop while the line being checked isn't empty then loop to the next line of the file
     while (fgets(line_buffer, bufferr_size, inputFile) != NULL)
     {
         //increment numberOfRecords so that the total number of records can be counted as each line is 1 record
-        numberOfRecords++;
-        
+        numberOfRecords++;   
     }
-
     //print the total number of records in the file
-    printf("Number of records in file: %d\n", numberOfRecords);
+    return numberOfRecords;
 }
 
 
