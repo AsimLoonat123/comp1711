@@ -10,9 +10,9 @@ typedef struct {
 	int steps;
 } FITNESS_DATA;
 
-
 int numberOfRecords (FILE *inputFile, int numberOfRecords)
 {
+    //initialise an array called line_buffer that is the size of the bufferr size
     char line_buffer[bufferr_size];
     //loop while the line being checked isn't empty then loop to the next line of the file
     while (fgets(line_buffer, bufferr_size, inputFile) != NULL)
@@ -20,7 +20,7 @@ int numberOfRecords (FILE *inputFile, int numberOfRecords)
         //increment numberOfRecords so that the total number of records can be counted as each line is 1 record
         numberOfRecords++;   
     }
-    //print the total number of records in the file
+    //return the total number of records in the file
     return numberOfRecords;
 }
 

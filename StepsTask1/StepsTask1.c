@@ -87,7 +87,7 @@ int main() {
     printf("Number of records in file: %d\n", numberOfRecords);
     
     //loop three times
-    for (n=1; n<60; n++) {
+    for (n=1; n<4; n++) {
         //print the date, time and steps separated by /
         printf("%s/%s/%d\n", fitnessData[n].date, fitnessData[n].time, fitnessData[n].steps);          
     }
