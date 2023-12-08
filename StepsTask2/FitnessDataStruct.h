@@ -2,6 +2,7 @@
 #define FITNESS_DATA_STRUCT_H
 #define bufferr_size 1000
 #include <stdio.h>
+#include <math.h>
 
 // Define an appropriate struct
 typedef struct {

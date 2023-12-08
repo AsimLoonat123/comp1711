@@ -224,7 +224,7 @@ int main() {
                     i++;
                     
                 }
-                int sumOfSteps = 0;
+                float sumOfSteps = 0;
                 float mean = 0;
                 for (n=1; n<numberOfRecords+1; n++) 
                 {
@@ -233,10 +233,10 @@ int main() {
                 }
                 //calculate the mean by dividing the total sum of the steps by the total number of records
                 mean = sumOfSteps / numberOfRecords;
-                int intMean = round(mean);
+                int intMean;
+                intMean = roundf(mean);
 
                 printf("Mean step count: %d\n", intMean);
-                //intMean = roundf(mean);
                 //close file
                 fclose(input);
             break;
