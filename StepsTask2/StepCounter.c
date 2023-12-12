@@ -243,7 +243,7 @@ int main() {
             case 'F':
             case 'f':
                 //open the file that the user has specified
-                input = fopen(filename, "r");
+                input = fopen(filename, "r"); 
                 //initialise the variables
                 numberOfRecords = 0, i = 1, stepsint, n = 1;
                 line_buffer[bufferr_size], date[500], time[500], steps[500];
