@@ -76,7 +76,7 @@ int main() {
         if (token == 1)
         {
             printf("Error: invalid file\n");
-            return 0;
+            return 1;
         }
                     
         //tokenise each line of the line into three separate variables
